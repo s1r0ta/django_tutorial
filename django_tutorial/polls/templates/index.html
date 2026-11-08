@@ -74,7 +74,7 @@
         {% for question in latest_question_list %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td><a href="{{ question.id }}">{{ question.question_text }}</a></td>
+                <td><a href="{{ question.id }}" style="text-decoration: none">{{ question.question_text }}</a></td>
                 <td>{{ question.pub_date|date:"d.m.Y" }}</td>
                 <td><span class="badge bg-secondary">{{ question.total_votes|default:0 }}</span></td>
                 <td>

@@ -27,7 +27,7 @@
                     </label>
                 </div>
                 {% endfor %}
-                <button type="submit" class="btn btn-succes mt-2">проголосовать</button>
+                <button href="{% url 'vote' question.id %}" type="submit" class="btn btn-success mt-2">проголосовать</button>
         </form>
    </div>
 </div>
