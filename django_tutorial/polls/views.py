@@ -12,13 +12,6 @@ def detail(request, question_id):
     return render(request, 'detail.html', {'question': question})
 
 def index(request):
-<<<<<<< HEAD
-    return HttpResponse("<h1>я тибя убью<h1>")
-def vilka(request):
-    return HttpResponse("<h1>вiлка<h1>")
-def lozhka(request):
-    return HttpResponse("<h1>лололошка<h1>")
-=======
     latest_question_list = Question.objects.annotate(total_votes=Sum("choice__votes")).order_by("-pub_date")[:5]
     context = {"latest_question_list": latest_question_list}
     return render(request, 'index.html', context)
@@ -45,4 +38,3 @@ def result(request, question_id):
         choice.percent = round(choice.votes * 100 / total) if total else 0
     context = {"question": question , "choices":choices ,"total":total}
     return render(request, "results.html", context)    
->>>>>>> 55b8074
