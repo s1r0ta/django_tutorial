@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow-sm col-md-8 mx-auto">
+    <div class="card-body">
+        <h2 class="card-title">
+            {{ question.question_text }}
+        </h2>
+        <p class="text-muted">
+            Всего голосов: {{ total }}
+        </p>
+        {% for choice in choices %}
+        <div class="d-flex justify-content-between">
+            <span>
+                {{ choice.choice_text }} - {{ choice.percent }}%
+            </span>
+            <span class="badge text-bg-primary">
+                {{ choice.votes }}
+            </span>
+        </div>
+        <div class="progress mb-3">
+            <div class="progress-bar" style="width: {{ choice.percent }}%"></div>
+        </div>
+        {% endfor %}
+        <button href="../" class="btn btn-light" style="border-color: gray;">прoголосовать еще раз</button>
+    </div>
+</div>
+{% endblock %}
